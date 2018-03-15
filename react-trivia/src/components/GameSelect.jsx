@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import GameQuestions from './GameQuestions';
 
 class GameSelect extends Component {
   constructor(props) {
@@ -59,8 +60,7 @@ class GameSelect extends Component {
     return (
       <div>
 
-        { selected ? (<div>
-          </div>)  : 
+        { selected ? <GameQuestions category={this.state.category} type={this.state.type} diff={this.state.difficulty}/> : 
         (<div>
           <form id="selecting" onSubmit={this.handleSubmit.bind(this)} >
             <FormGroup controlId="category">

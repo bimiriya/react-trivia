@@ -33,6 +33,30 @@
 }
 
 .login-container {
-  background: pink;
   padding: 3em;
+  background: rgba(255, 255, 255, 0.808);
+  border-radius: 1em;
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.app {
+  background-image: url(https://picsum.photos/1000/1000/?random);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.login-container h1 {
+  font-family: 'Rammetto One', cursive;
+}
+
+.login-container img {
+  width: 100%;
+}
+
+.login-container button {
+  font-size: 1.4em;
+  margin: 1em 0;
 }
