@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Grid, Row, Col, Image, NavDropdown, MenuItem, Nav } from 'react-bootstrap';
+import { Navbar, Image, NavDropdown, MenuItem, Nav } from 'react-bootstrap';
 
 
 const NavBar = ({src, title, onClick }) => {
