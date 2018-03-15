@@ -7,9 +7,12 @@ class GameQuestions extends Component {
     this.state = {
       category,
       type,
-      diff
+      diff,
+      questions: '',
+      counter: 0,
     }
   }
+
 
   componentWillMount() {
     console.log(this.state)
@@ -22,37 +25,39 @@ class GameQuestions extends Component {
     console.log(category)
     fetch(url)
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => data.results.map(quest => ({
+      question: `${quest.question}`,
+      right: `${quest.correct_answer}`,
+      wrong: `${quest.incorrect_answers}`,
+    }
+  )))
+  .then(questions => this.setState({
+    questions,
+  }))
 
   }
 
-  // componentDidMount() {
-
-  // }
-
-  // componentWillReceiveProps(nextProps) {
-
-  // }
-
-  // shouldComponentUpdate(nextProps, nextState) {
-
-  // }
-
-  // componentWillUpdate(nextProps, nextState) {
-
-  // }
-
-  // componentDidUpdate(prevProps, prevState) {
-
-  // }
-
-  // componentWillUnmount() {
-
-  // }
-
   render() {
+    // console.log(this.counter);
+    // this.counter ++;
+    console.log(this.state);
+    const {questions} = this.state;
+    console.log(questions);
+    console.log(questions[this.counter]);
+
+
     return (
       <div>
+        {
+        
+          questions.length > 0 ?
+          ( <div>
+              <h1>{questions[this.state.counter].question}</h1>
+              <button  >Next</button>
+          </div>
+        ) : null
+        }
+
 
       </div>
     );
