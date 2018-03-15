@@ -56,7 +56,43 @@
   width: 100%;
 }
 
+.login-container h1 {
+  font-size: 4em;
+}
+
+.login-container p {
+  font-size: 1.5em;
+}
+
 .login-container button {
   font-size: 1.4em;
   margin: 1em 0;
+}
+
+.login-container button span {
+  margin-left: 0.5em;
+}
+
+form {
+  background: white;
+  padding: 2em;
+  border-radius: 1em;
+}
+
+form button {
+  width: 100%;
+}
+
+form button span {
+  font-size: 1.7em;
+}
+
+.question {
+  background: rgba(255, 255, 255, 0.856);
+  padding: 2em 1em;
+  border-radius: 1em;
+}
+
+.next-btn {
+  width: 100%;
 }

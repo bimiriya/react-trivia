@@ -73,7 +73,7 @@ class Login extends Component {
                   <Row className="show-grid">
                     <Col xs={8} xsOffset={2} sm={8} smOffset={2} md={8} mdOffset={2} lg={8} lgOffset={2}>
                       <p className="text-justify">
-                        Test your knowledge in any area of your choosing and challenge yourself everuday!
+                        Test your knowledge in any area of your choosing and challenge yourself everyday!
                       </p>
                     </Col>
                   </Row>
@@ -81,7 +81,7 @@ class Login extends Component {
                     <Col xs={12} sm={12} md={12} lg={12}>
                       <button className="btn btn-warning" onClick={this.login}>
                         <i className="fab fa-google" />
-                        Log in with your Google account
+                        <span>Log in with your Google account</span>
                       </button>
                     </Col>
                   </Row>
