@@ -93,6 +93,10 @@ form button span {
   border-radius: 1em;
 }
 
+.answer {
+  width: 100%;
+}
+
 .next-btn {
   width: 100%;
 }

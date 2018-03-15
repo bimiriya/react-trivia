@@ -39,6 +39,10 @@ class GameQuestions extends Component {
       );
   }
 
+  handleRightAnswer() {
+    console.log('yaaaa')
+  }
+
   render() {
     const { questions } = this.state;
     return (
@@ -54,7 +58,7 @@ class GameQuestions extends Component {
             </Row>
             <Row>
             <Col xs={6} sm={6} md={6} lg={6}>
-              <div className="answer">{questions[this.state.counter].right}</div>
+              <button onClick={this.handleRightAnswer} className="answer btn">{questions[this.state.counter].right}</button>
             </Col>
             </Row>
             <Row>
