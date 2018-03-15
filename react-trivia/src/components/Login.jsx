@@ -54,7 +54,7 @@ class Login extends Component {
                   <div className="login-container text-center">
                     <h1>Play trivia!</h1>
                     <button className="btn" onClick={this.login}>
-                      <i class="fab fa-google"></i>
+                      <i className="fab fa-google"></i>
                       <span>Log in with your Google account</span>
                     </button>
                   </div>
