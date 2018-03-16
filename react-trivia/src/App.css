@@ -102,6 +102,7 @@ form button span {
   width: 100%;
   margin: 0.5em 0;
   font-size: 2em;
+  white-space: initial;
 }
 
 .next-btn {
@@ -122,9 +123,25 @@ form button span {
   width: 100%;
   background: black;
   margin-bottom: 3em;
+  color: white;
 }
 
 .navdone h3 {
   display: inline-block;
   font-family: 'Rammetto One', cursive;
+}
+
+.gif_player {
+  display:flex;
+  flex-flow: column;
+}
+
+.gif_player img {
+  width: 100%;
+  height: auto;
+}
+
+.play_again {
+  width: 100%;
+  font-size: 2em;
 }

@@ -6,47 +6,58 @@ import Bad from './../img/bad.gif';
 import Half from './../img/half.gif';
 
 class EndGame extends Component {
-
+  handleClick() {
+    window.location.reload();
+  };
   render() {
     if (this.props.right < 5) {
       return (
         <div>
-            
-              <Row>
-                <Col xs={6} xsOffset={3} sm={6} smOffset={3} md={6} mdOffset={3} lg={6} lgOffset={3}>
-                   <GifPlayer className="gif" gif={Bad} still={Bad} />
-                </Col>
-              </Row>
-            </div>
-  
-      )
+          <Grid>
+          <Row>
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <div className="question text-center">
+                <h1>{this.props.right} right answers out of 10!</h1>
+              </div>
+              <GifPlayer className="gif img-responsive" gif={Bad} still={Bad} />
+              <button onClick={this.handleClick} className="btn play_again btn-warning">Play again</button>
+            </Col>
+          </Row>
+          </Grid>
+        </div>
+      );
     } else if (this.props.right === 5) {
       return (
         <div>
-
-              <Row>
-                <Col xs={6} xsOffset={3} sm={6} smOffset={3} md={6} mdOffset={3} lg={6} lgOffset={3}>
-                   <GifPlayer className="gif" gif={Half} still={Half} />
-                </Col>
-              </Row>
-            </div>
-            )
+          <Grid>
+            <Row>
+              <Col xs={12} sm={12} md={12} lg={12}>
+                <div className="question text-center">
+                  <h1>{this.props.right} right answers out of 10!</h1>
+                </div>
+                <GifPlayer className="gif" gif={Half} still={Half} />
+                <button onClick={this.handleClick} className="btn play_again btn-warning">Play again</button>
+              </Col>
+            </Row>
+          </Grid>
+        </div>
+      );
     } else if (this.props.right > 5) {
       return (
         <div>
-            <Row>
-            <Col xs={12} sm={12} md={6} mdOffset={3} lg={6} lgOffset={3}>
-            <div className="bad_result" >
-              <Row>
-                <Col xs={6} xsOffset={3} sm={6} smOffset={3} md={6} mdOffset={3} lg={6} lgOffset={3}>
-                   <GifPlayer className="gif" gif={Half} still={Half} />
-                </Col>
-              </Row>
-            </div>
+          <Grid>
+          <Row>
+            <Col xs={10} sm={12} md={12} lg={12}>
+              <div className="question text-center">
+                <h1>{this.props.right} right answers out of 10!</h1>
+              </div>
+              <GifPlayer className="gif" gif={Half} still={Half} />
+              <button onClick={this.handleClick} className="btn play_again btn-warning">Play again</button>
             </Col>
-            </Row>
-        </div>)
-
+          </Row>
+          </Grid>
+        </div>
+      );
     }
   }
 }

@@ -120,7 +120,7 @@ class GameQuestions extends Component {
                     } else {
                       const answ = `${ans}`;
                       return (
-                        <Col xs={6} sm={6} md={6} lg={6}>
+                        <Col xs={12} sm={12} md={12} lg={12}>
                         <button key={ans} name={ans} onClick={this.handleRightAnswer.bind(this)} className="answer btn">{this.htmlDecode(ans)}</button>
                         </Col>
                       )
