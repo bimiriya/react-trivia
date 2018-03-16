@@ -81,12 +81,18 @@ class GameQuestions extends Component {
     
   }
 
+  htmlDecode(input) {
+  var doc = new DOMParser().parseFromString(input, "text/html");
+  return doc.documentElement.textContent;
+  }
+
   render() {
     const { questions } = this.state;
     const { answers } = this.state;
     const { counter } = this.state;
     // console.log(answers[counter].length);
     const finalAnswers = answers[counter];
+    // const quest = questions[this.state.counter].question;
     
     return (
       <div>
@@ -95,7 +101,10 @@ class GameQuestions extends Component {
             <Row>
               <Col xs={12} sm={12} md={12} lg={12}>
                 <div className="question text-center">
-                  <h1>{questions[this.state.counter].question}</h1>
+                {/* {
+                  quest = ,
+                } */}
+                <h1>{this.htmlDecode(questions[this.state.counter].question)}</h1>
                 </div>
               </Col>
             </Row>
@@ -103,12 +112,11 @@ class GameQuestions extends Component {
             <Col xs={6} sm={6} md={6} lg={6}>
               {  answers.length > 0 && this.state.isValid === null ? 
                 finalAnswers.map(ans => {
-                  if (ans===undefined) {
-                    console.log(ans);                    
+                  if (ans===undefined) {                
                   } else {
-                    const answ = `${ans}`
+                    const answ = `${ans}`;
                     return (
-                      <button key={ans} name={ans} onClick={this.handleRightAnswer.bind(this)} className="answer btn">{answ}</button>
+                      <button key={ans} name={ans} onClick={this.handleRightAnswer.bind(this)} className="answer btn">{this.htmlDecode(ans)}</button>
                     )
                   }
                   })  
