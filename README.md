@@ -29,10 +29,10 @@ npm install react-dom
 
 The project was developed with the following dependencies
 + Dev dependencies
-- GH-PAGES `^1.1.0`
+   - GH-PAGES `^1.1.0`
 
-+ Product dependencies
-- Firebase `^4.11.0`
++Product dependencies
+-Firebase `^4.11.0`
 - React `^16.2.0`
 - React-DOM `^16.2.0`
 - React Bootstrap `^0.32.1`
