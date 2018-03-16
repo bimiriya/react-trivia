@@ -13,8 +13,9 @@ class GameQuestions extends Component {
       diff,
       questions: '',
       counter: 0,
-      answers:[],
+      answers: [],
       isValid: null,
+      right: 0
     };
   }
 
@@ -44,10 +45,11 @@ class GameQuestions extends Component {
           }
           this.state.answers.push(ans);
           return ({
-          question: `${quest.question}`,
-          right: `${quest.correct_answer}`,
-          wrong: `${quest.incorrect_answers}`
-        })})
+            question: `${quest.question}`,
+            right: `${quest.correct_answer}`,
+            wrong: `${quest.incorrect_answers}`
+          })
+        })
       )
       .then(questions =>
 
@@ -56,10 +58,11 @@ class GameQuestions extends Component {
         })
       )
       .catch(error => console.log(error));
-    }
-    
+  }
+
   nextQuestion() {
     const add = this.state.counter + 1;
+    this.props.counter(add);
     this.setState({
       counter: add,
       isValid: null,
@@ -69,7 +72,10 @@ class GameQuestions extends Component {
   handleRightAnswer(event) {
     console.log(event.target.name)
     if (event.target.name === this.state.questions[this.state.counter].right) {
+      const add = this.state.right + 1;
+      this.props.right(add);
       this.setState({
+        right: add,
         isValid: true
       })
     } else {
@@ -78,12 +84,11 @@ class GameQuestions extends Component {
       })
     }
     console.log(this.state);
-    
   }
 
   htmlDecode(input) {
-  var doc = new DOMParser().parseFromString(input, "text/html");
-  return doc.documentElement.textContent;
+    var doc = new DOMParser().parseFromString(input, "text/html");
+    return doc.documentElement.textContent;
   }
 
   render() {
@@ -93,7 +98,7 @@ class GameQuestions extends Component {
     // console.log(answers[counter].length);
     const finalAnswers = answers[counter];
     // const quest = questions[this.state.counter].question;
-    
+
     return (
       <div>
         {questions.length > 0 ? (
@@ -101,36 +106,36 @@ class GameQuestions extends Component {
             <Row>
               <Col xs={12} sm={12} md={12} lg={12}>
                 <div className="question text-center">
-                {/* {
+                  {/* {
                   quest = ,
                 } */}
-                <h1>{this.htmlDecode(questions[this.state.counter].question)}</h1>
+                  <h1>{this.htmlDecode(questions[this.state.counter].question)}</h1>
                 </div>
               </Col>
             </Row>
             <Row>
-            <Col xs={6} sm={6} md={6} lg={6}>
-              {  answers.length > 0 && this.state.isValid === null ? 
-                finalAnswers.map(ans => {
-                  if (ans===undefined) {                
-                  } else {
-                    const answ = `${ans}`;
-                    return (
-                      <button key={ans} name={ans} onClick={this.handleRightAnswer.bind(this)} className="answer btn">{this.htmlDecode(ans)}</button>
-                    )
-                  }
-                  })  
+              <Col xs={6} sm={6} md={6} lg={6}>
+                {answers.length > 0 && this.state.isValid === null ?
+                  finalAnswers.map(ans => {
+                    if (ans === undefined) {
+                    } else {
+                      const answ = `${ans}`;
+                      return (
+                        <button key={ans} name={ans} onClick={this.handleRightAnswer.bind(this)} className="answer btn">{this.htmlDecode(ans)}</button>
+                      )
+                    }
+                  })
                   : null
-              }
-            </Col>
+                }
+              </Col>
             </Row>
             <Row>
-            <Col xs={12} sm={12} md={6} mdOffset={3} lg={6} lgOffset={3} >
-              {
-        this.state.isValid ? ( this.state.isValid === true ? <Right onClick={this.nextQuestion.bind(this)}/> : <Wrong onClick={this.nextQuestion.bind(this)}/> ) : null
-              }
-            
-            </Col>
+              <Col xs={12} sm={12} md={6} mdOffset={3} lg={6} lgOffset={3} >
+                {
+                  this.state.isValid ? (this.state.isValid === true ? <Right onClick={this.nextQuestion.bind(this)} /> : <Wrong onClick={this.nextQuestion.bind(this)} />) : null
+                }
+
+              </Col>
             </Row>
           </Grid>
         ) : null}
