@@ -3,8 +3,6 @@ import { Grid, Row, Col, Image } from 'react-bootstrap';
 
 
 const NavBar = ({src, title, onClick, counter, select }) => {
-  console.log(select);
-  console.log(counter);
 
   return (
     <div className="navdone">
@@ -22,6 +20,7 @@ const NavBar = ({src, title, onClick, counter, select }) => {
       <div className="navright text-right" >
         <h3>{title}</h3>
         <Image className="navbar-pic" src={src} circle />
+        <a onClick={onClick}><i class="fas fa-power-off"></i></a>
       </div>
       </Col>
       </Row>
