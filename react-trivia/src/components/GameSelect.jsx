@@ -5,14 +5,15 @@ import GameQuestions from './GameQuestions';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 class GameSelect extends Component {
-  constructor(props) {
-    super(props);
+  constructor(counter) {
+    super(counter);
     this.state = {
       categories: '',
       category:'',
       type:'',
       difficulty:'',
-      selected: null
+      selected: null,
+      counter,
     }
 
   }
@@ -46,6 +47,7 @@ class GameSelect extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.selected(true);
     this.setState({
       selected: true
     });
@@ -55,13 +57,16 @@ class GameSelect extends Component {
   render() {
     const { categories } = this.state;
     const { selected } = this.state;
+    // const { counter } = this.props;
+    // const { addCounter } = this.props;
     // console.log(categories.length);
     // console.log(this.state);
+console.log(this.state);
 
     return (
       <div>
 
-        { selected ? <GameQuestions category={this.state.category} type={this.state.type} diff={this.state.difficulty}/> : 
+        { selected ? <GameQuestions right={this.props.right} counter={this.props.counter} category={this.state.category} type={this.state.type} diff={this.state.difficulty}/> : 
         (<div>
             <Grid>
             <Row>
