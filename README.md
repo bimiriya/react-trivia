@@ -7,6 +7,7 @@ Trivia game questions by category, type and difficulty.
 ## Hosting
 
 [Firebase](https://react-trivia.firebaseapp.com/)
+
 [GH-PAGES](https://bimiriya.github.io/react-trivia/)
 
 ## Development
