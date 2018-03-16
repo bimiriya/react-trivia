@@ -2,6 +2,8 @@
 
 ![sample](sample.png)
 
+![sample](sample2.png) ![sample](sample3.png)
+
 Trivia game questions by category, type and difficulty.
 
 ## Hosting
@@ -38,6 +40,10 @@ The project was developed with the following dependencies
    - React Bootstrap `^0.32.1`
    - React-gif-player `^0.3.1`
    - React Scripts `1.1.1`
+
+## Wireframe
+
+![wireframe](Presentation1.jpg)
 
 ## Authors
 
