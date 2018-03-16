@@ -114,20 +114,20 @@ class GameQuestions extends Component {
               </Col>
             </Row>
             <Row>
-              <Col xs={6} sm={6} md={6} lg={6}>
                 {answers.length > 0 && this.state.isValid === null ?
                   finalAnswers.map(ans => {
                     if (ans === undefined) {
                     } else {
                       const answ = `${ans}`;
                       return (
+                        <Col xs={6} sm={6} md={6} lg={6}>
                         <button key={ans} name={ans} onClick={this.handleRightAnswer.bind(this)} className="answer btn">{this.htmlDecode(ans)}</button>
+                        </Col>
                       )
                     }
                   })
                   : null
                 }
-              </Col>
             </Row>
             <Row>
               <Col xs={12} sm={12} md={6} mdOffset={3} lg={6} lgOffset={3} >

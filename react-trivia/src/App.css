@@ -30,6 +30,7 @@
 /*----------------------*/
 .navbar-pic {
   width: 3em;
+  margin-left: 1em;
 }
 
 .login-container {
@@ -115,4 +116,15 @@ form button span {
 
 .wrong_answer {
   text-align: center;
+}
+
+.navdone {
+  width: 100%;
+  background: black;
+  margin-bottom: 3em;
+}
+
+.navdone h3 {
+  display: inline-block;
+  font-family: 'Rammetto One', cursive;
 }
