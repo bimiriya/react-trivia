@@ -88,15 +88,31 @@ form button span {
 }
 
 .question {
-  background: rgba(255, 255, 255, 0.856);
+  background: rgba(255, 255, 255, 0.959);
   padding: 2em 1em;
   border-radius: 1em;
 }
 
+.question h1 {
+  font-size: 1.7em
+}
+
 .answer {
   width: 100%;
+  margin: 0.5em 0;
+  font-size: 2em;
 }
 
 .next-btn {
   width: 100%;
+  font-size: 2em;
+  margin-top: 2em;
+}
+
+.right_answer {
+  text-align: center;
+}
+
+.wrong_answer {
+  text-align: center;
 }
