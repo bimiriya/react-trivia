@@ -12,8 +12,8 @@ class Home extends Component {
       onClick,
       counter: 0,
       right: 0,
-      selected: null,
-    }
+      selected: null
+    };
   }
   render() {
     const { src } = this.props;
@@ -24,21 +24,25 @@ class Home extends Component {
     const { select } = this.state;
     return (
       <div>
-        <NavBar src={src} title={title} onClick={onClick} counter={counter} select={select}/>
-        {
-          this.state.counter > 10 ? <EndGame right={right}/>
-          : 
-          <GameSelect selected={(num) => this.setState({select: num})} right={(num) => this.setState({right: num})}  counter={(name) => this.setState({counter: name + 1})}/>
-        }
+        <NavBar
+          src={src}
+          title={title}
+          onClick={onClick}
+          counter={counter}
+          select={select}
+        />
+        {this.state.counter > 10 ? (
+          <EndGame right={right} />
+        ) : (
+          <GameSelect
+            selected={num => this.setState({ select: num })}
+            right={num => this.setState({ right: num })}
+            counter={name => this.setState({ counter: name + 1 })}
+          />
+        )}
       </div>
-    )
+    );
   }
 }
-// const Home = ({src, title, onClick}) => {
-
-//     return (
-//     );
-
-// }
 
 export default Home;

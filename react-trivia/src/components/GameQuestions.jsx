@@ -44,17 +44,16 @@ class GameQuestions extends Component {
             ans[j] = temp;
           }
           this.state.answers.push(ans);
-          return ({
+          return {
             question: `${quest.question}`,
             right: `${quest.correct_answer}`,
             wrong: `${quest.incorrect_answers}`
-          })
+          };
         })
       )
       .then(questions =>
-
         this.setState({
-          questions,
+          questions
         })
       )
       .catch(error => console.log(error));
@@ -65,29 +64,29 @@ class GameQuestions extends Component {
     this.props.counter(add);
     this.setState({
       counter: add,
-      isValid: null,
-    })
+      isValid: null
+    });
   }
 
   handleRightAnswer(event) {
-    console.log(event.target.name)
+    console.log(event.target.name);
     if (event.target.name === this.state.questions[this.state.counter].right) {
       const add = this.state.right + 1;
       this.props.right(add);
       this.setState({
         right: add,
         isValid: true
-      })
+      });
     } else {
       this.setState({
         isValid: 'false'
-      })
+      });
     }
     console.log(this.state);
   }
 
   htmlDecode(input) {
-    var doc = new DOMParser().parseFromString(input, "text/html");
+    var doc = new DOMParser().parseFromString(input, 'text/html');
     return doc.documentElement.textContent;
   }
 
@@ -109,32 +108,43 @@ class GameQuestions extends Component {
                   {/* {
                   quest = ,
                 } */}
-                  <h1>{this.htmlDecode(questions[this.state.counter].question)}</h1>
+                  <h1>
+                    {this.htmlDecode(questions[this.state.counter].question)}
+                  </h1>
                 </div>
               </Col>
             </Row>
             <Row>
-                {answers.length > 0 && this.state.isValid === null ?
-                  finalAnswers.map(ans => {
+              {answers.length > 0 && this.state.isValid === null
+                ? finalAnswers.map(ans => {
                     if (ans === undefined) {
                     } else {
                       const answ = `${ans}`;
                       return (
-                        <Col xs={12} sm={12} md={12} lg={12}>
-                        <button key={ans} name={ans} onClick={this.handleRightAnswer.bind(this)} className="answer btn">{this.htmlDecode(ans)}</button>
+                        <Col xs={12} sm={12} md={6} lg={6}>
+                          <button
+                            key={ans}
+                            name={ans}
+                            onClick={this.handleRightAnswer.bind(this)}
+                            className="answer btn"
+                          >
+                            {this.htmlDecode(ans)}
+                          </button>
                         </Col>
-                      )
+                      );
                     }
                   })
-                  : null
-                }
+                : null}
             </Row>
             <Row>
-              <Col xs={12} sm={12} md={6} mdOffset={3} lg={6} lgOffset={3} >
-                {
-                  this.state.isValid ? (this.state.isValid === true ? <Right onClick={this.nextQuestion.bind(this)} /> : <Wrong onClick={this.nextQuestion.bind(this)} />) : null
-                }
-
+              <Col xs={12} sm={12} md={6} mdOffset={3} lg={6} lgOffset={3}>
+                {this.state.isValid ? (
+                  this.state.isValid === true ? (
+                    <Right onClick={this.nextQuestion.bind(this)} />
+                  ) : (
+                    <Wrong onClick={this.nextQuestion.bind(this)} />
+                  )
+                ) : null}
               </Col>
             </Row>
           </Grid>

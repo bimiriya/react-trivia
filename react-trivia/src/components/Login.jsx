@@ -44,9 +44,7 @@ class Login extends Component {
     });
   }
 
-
   render() {
-    
     return (
       <div className="app">
         {this.state.user ? (
@@ -61,8 +59,17 @@ class Login extends Component {
               <Col xs={12} sm={12} md={6} mdOffset={3} lg={6} lgOffset={3}>
                 <div className="login-container text-center">
                   <Row className="show-grid">
-                    <Col xs={6} xsOffset={3} sm={6} smOffset={3} md={6} mdOffset={3} lg={6} lgOffset={3}>
-                      <GifPlayer gif={WelcomePic} still={WelcomePic}/>
+                    <Col
+                      xs={6}
+                      xsOffset={3}
+                      sm={6}
+                      smOffset={3}
+                      md={6}
+                      mdOffset={3}
+                      lg={6}
+                      lgOffset={3}
+                    >
+                      <GifPlayer gif={WelcomePic} still={WelcomePic} />
                     </Col>
                   </Row>
                   <Row className="show-grid">
@@ -71,9 +78,19 @@ class Login extends Component {
                     </Col>
                   </Row>
                   <Row className="show-grid">
-                    <Col xs={8} xsOffset={2} sm={8} smOffset={2} md={8} mdOffset={2} lg={8} lgOffset={2}>
+                    <Col
+                      xs={8}
+                      xsOffset={2}
+                      sm={8}
+                      smOffset={2}
+                      md={8}
+                      mdOffset={2}
+                      lg={8}
+                      lgOffset={2}
+                    >
                       <p className="text-justify">
-                        Test your knowledge in any area of your choosing and challenge yourself everyday!
+                        Test your knowledge in any area of your choosing and
+                        challenge yourself everyday!
                       </p>
                     </Col>
                   </Row>

@@ -1,54 +1,37 @@
 import React from 'react';
-import { Grid, Row, Col, Image } from 'react-bootstrap';
+import { Grid, Row, Col, Image, Navbar } from 'react-bootstrap';
 
-
-const NavBar = ({src, title, onClick, counter, select }) => {
-
+const NavBar = ({ src, title, onClick, counter, select }) => {
   return (
-    <div className="navdone">
-    <Grid>
-      <Row>
-      <Col xs={6} sm={6} md={6} lg={6}>
-        <div className="navleft">
-        <h3>Trivia</h3>
-        {
-          counter === 0 ? (select ? <p>1/10</p> : null ) : counter  > 10 ? null : (select ? <p>{counter}/10</p> : null )
-        }
-        </div>
-      </Col>
-      <Col xs={6} sm={6} md={6} lg={6}>
-      <div className="navright text-right" >
-        <h3>{title}</h3>
-        <Image className="navbar-pic" src={src} circle />
-        <a onClick={onClick}><i class="fas fa-power-off"></i></a>
-      </div>
-      </Col>
-      </Row>
-    </Grid>
-    </div>
-    // <Navbar inverse collapseOnSelect>
-    //   <Navbar.Header>
-    //     <Navbar.Brand>
-    //       <a href="#home">Trivia</a>
-    //       {
-    //         counter === 0 ? (select ? <p>1/10</p> : null ) : counter  > 10 ? null : (select ? <p>{counter}/10</p> : null )
-    //       }
-    //     </Navbar.Brand>
-    //     <Navbar.Toggle />
-    //   </Navbar.Header>
-    //   <Navbar.Collapse>
-    //       <Nav pullRight>
-    //         <NavDropdown eventKey={3} title={title} id="basic-nav-dropdown">
-    //           <MenuItem eventKey={3.1}>Score</MenuItem>
-    //           <MenuItem onClick={onClick} eventKey={3.2}>Logout</MenuItem>
-    //         </NavDropdown>
-    //       <NavItem>
-    //         
-    //       </NavItem>
-    //       </Nav>
-    //   </Navbar.Collapse>
-    // </Navbar>
+    <Navbar inverse>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <a className="trivia" href="#home">
+            Trivia
+          </a>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Navbar.Text>
+          <Image className="navbar-pic" src={src} circle />
+          Signed in as: <span>{title}</span>
+        </Navbar.Text>
+        <Navbar.Text pullRight>
+          {counter === 0 ? (
+            select ? (
+              <span>1 / 10</span>
+            ) : null
+          ) : counter > 10 ? null : select ? (
+            <span>{counter} / 10</span>
+          ) : null}
+          <a onClick={onClick}>
+            <i class="fas fa-power-off" />
+          </a>
+        </Navbar.Text>
+      </Navbar.Collapse>
+    </Navbar>
   );
-}
+};
 
 export default NavBar;

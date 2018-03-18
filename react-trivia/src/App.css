@@ -29,8 +29,8 @@
 
 /*----------------------*/
 .navbar-pic {
-  width: 3em;
-  margin-left: 1em;
+  width: 2em;
+  margin-right: 1em;
 }
 
 .login-container {
@@ -121,15 +121,14 @@ form button span {
 
 .navdone {
   width: 100%;
-  background: black;
-  margin-bottom: 3em;
   color: white;
   padding: 0.5em 0;
 }
 
-.navdone h3 {
+.navdone .trivia {
   display: inline-block;
   font-family: 'Rammetto One', cursive;
+  color: white;
 }
 
 .gif_player {
@@ -150,4 +149,5 @@ form button span {
 .fa-power-off {
   color: white;
   font-size: 1.5em;
+  margin-left: 1em;
 }
