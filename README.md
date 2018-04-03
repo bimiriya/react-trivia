@@ -1,6 +1,6 @@
 # Trivia
 
-![sample](sample.png)
+![sample](https://user-images.githubusercontent.com/32300763/38247688-8a5e9e18-371c-11e8-9baa-8a26cd06f933.png)
 
 ![sample](sample2.png) ![sample](sample3.png)
 
